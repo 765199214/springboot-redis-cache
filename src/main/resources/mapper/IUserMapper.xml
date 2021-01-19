@@ -1,0 +1,20 @@
+<?xml version="1.1" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.linkpower.dao.UserMapper">
+	<update id="updateUser" parameterType="cn.linkpower.vo.User">
+		update user 
+		<set>
+			<if test="userName != null">
+				userName = #{userName},
+			</if>
+			<if test="passWord != null">
+				passWord = #{passWord},
+			</if>
+		</set>
+		where 1 = 1
+		<if test="id != null">
+			and id = #{id}
+		</if>
+	</update>
+</mapper>
